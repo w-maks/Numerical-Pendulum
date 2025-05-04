@@ -22,3 +22,29 @@ double U(const double phi) {
 double E(const double T, const double U) {
     return T + U;
 }
+
+void period_reset(PeriodDetector* pd, const double omega0) {
+    pd->crossings = 0;
+    pd->omega_previous = omega0;
+    pd->t_previous = 0.0;
+    pd->t_crossing[0] = pd->t_crossing[1] = 0.0;
+}
+
+double period_update(PeriodDetector* pd, const double t, const double omega) {
+    if (pd->omega_previous < 0.0 && omega > 0.0) {
+        const double frac = pd->omega_previous / (pd->omega_previous - omega);
+        const double t0 = pd->t_previous + frac * (t - pd->t_previous);
+
+        if (pd->crossings < 2)
+            pd->t_crossing[pd->crossings] = t0;
+
+        pd->crossings++;
+
+        if (pd->crossings == 2) {
+            return pd->t_crossing[1] - pd->t_crossing[0];
+        }
+    }
+    pd->omega_previous = omega;
+    pd->t_previous = t;
+    return NAN;
+}
