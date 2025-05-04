@@ -30,7 +30,7 @@ int main(void)
 
         PeriodDetector pd;
         period_reset(&pd, omega0);
-        double detected_T = NAN;
+        double period_found = NAN;
 
         FILE *fp = fopen(files[j], "w");
 
@@ -40,9 +40,9 @@ int main(void)
                 analytical_pendulum(t, phi0[j] * M_PI / 180, omega0, a);
                 fprintf(fp, "%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf\n",t, s[0], s[1], a[0], a[1], T(s[1]), U(s[0]), E(T(s[1]), U(s[0])));
 
-                double T_now = period_update(&pd, t, s[1]);
-                if (!isnan(T_now) && isnan(detected_T)) {
-                    detected_T = T_now;
+                double period = period_update(&pd, t, s[1]);
+                if (!isnan(period) && isnan(period_found)) {
+                    period_found = period;
                 }
 
                 rk4_vec(t, dt, n, s, f);
@@ -53,20 +53,18 @@ int main(void)
             for (int i = 0; i <= N; ++i) {
                 fprintf(fp, "%lf,%lf,%lf,%lf,%lf,%lf\n", t, s[0], s[1], T(s[1]), U(s[0]), E(T(s[1]), U(s[0])));
 
-                double T_now = period_update(&pd, t, s[1]);
-                if (!isnan(T_now) && isnan(detected_T)) {
-                    detected_T = T_now;
+                double period = period_update(&pd, t, s[1]);
+                if (!isnan(period) && isnan(period_found)) {
+                    period_found = period;
                 }
 
                 rk4_vec(t, dt, n, s, f);
                 t += dt;
             }
         }
-        if (!isnan(detected_T)) {
-            fprintf(fp2, "%.1f,%.6f\n", phi0[j], detected_T);
-        } else {
-            fprintf(fp2, "%.1f,NAN\n", phi0[j]);
-        }
+
+        fprintf(fp2, "%.1f,%.6f\n", phi0[j], period_found);
+
         fclose(fp);
     }
 

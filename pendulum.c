@@ -32,6 +32,7 @@ void period_reset(PeriodDetector* pd, const double omega0) {
 
 double period_update(PeriodDetector* pd, const double t, const double omega) {
     if (pd->omega_previous < 0.0 && omega > 0.0) {
+        //linear interpolation of omega==0 moment
         const double frac = pd->omega_previous / (pd->omega_previous - omega);
         const double t0 = pd->t_previous + frac * (t - pd->t_previous);
 
@@ -39,7 +40,7 @@ double period_update(PeriodDetector* pd, const double t, const double omega) {
             pd->t_crossing[pd->crossings] = t0;
 
         pd->crossings++;
-
+        //period as time between two successive maxima
         if (pd->crossings == 2) {
             return pd->t_crossing[1] - pd->t_crossing[0];
         }
