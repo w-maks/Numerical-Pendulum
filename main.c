@@ -26,10 +26,10 @@ int main(void)
         s[1] = omega0;
         FILE *fp = fopen(files[j], "w");
         if (j == 0) {
-            fprintf(fp, "t,phi,omega,phi_anal,omega_anal\n");
+            fprintf(fp, "t,phi,omega,phi_anal,omega_anal,T,U,E\n");
             for (int i = 0; i <= N; ++i) {
                 analytical_pendulum(t, phi0[j] * M_PI / 180, omega0, a);
-                fprintf(fp, "%lf,%lf,%lf,%lf,%lf\n",t, s[0], s[1], a[0], a[1]);
+                fprintf(fp, "%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf\n",t, s[0], s[1], a[0], a[1], T(s[1]), U(s[0]), E(T(s[1]), U(s[0])));
                 rk4_vec(t, dt, n, s, f);
                 t += dt;
             }
