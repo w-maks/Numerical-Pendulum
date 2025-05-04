@@ -3,6 +3,7 @@
 #include "analytical_pendulum.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main(void)
 {
@@ -21,13 +22,13 @@ int main(void)
 
     for (size_t j = 0; j < 5; ++j) {
         double t = 0.0;
-        s[0] = phi0[j];
+        s[0] = phi0[j] * M_PI / 180;
         s[1] = omega0;
         FILE *fp = fopen(files[j], "w");
         if (j == 0) {
             fprintf(fp, "t,phi,omega,phi_anal,omega_anal\n");
             for (int i = 0; i <= N; ++i) {
-                analytical_pendulum(t, phi0[j], omega0, a);
+                analytical_pendulum(t, s[0], s[1], a);
                 fprintf(fp, "%lf,%lf,%lf,%lf,%lf\n",t, s[0], s[1], a[0], a[1]);
                 rk4_vec(t, dt, n, s, f);
                 t += dt;

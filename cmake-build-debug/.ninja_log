@@ -1,14 +1,11 @@
 # ninja log v6
-6	189	1746309219361551166	CMakeFiles/Numerical_Pendulum.dir/pendulum.c.o	14f88b12ca971f1b
-2	166	1746309219357550989	CMakeFiles/Numerical_Pendulum.dir/analytical_pendulum.c.o	9513709f71fa115d
-3	231	1746309219358551033	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
-7	149	1746309219362551210	CMakeFiles/Numerical_Pendulum.dir/rk4.c.o	ecd9c855c925f108
-3	68	1746309713638382983	build.ninja	f54f89c05621857a
-1	113	1746309713661383999	CMakeFiles/Numerical_Pendulum.dir/analytical_pendulum.c.o	9513709f71fa115d
 3	123	1746309713662384043	CMakeFiles/Numerical_Pendulum.dir/pendulum.c.o	14f88b12ca971f1b
-3	177	1746309713662384043	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
-177	294	1746309713836391731	Numerical_Pendulum	b21e434097f217df
-3	122	1746310090395029768	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
-122	224	1746310090514035027	Numerical_Pendulum	b21e434097f217df
+1	113	1746309713661383999	CMakeFiles/Numerical_Pendulum.dir/analytical_pendulum.c.o	9513709f71fa115d
 3	135	1746310233420349559	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
+7	149	1746309219362551210	CMakeFiles/Numerical_Pendulum.dir/rk4.c.o	ecd9c855c925f108
 135	242	1746310233553355436	Numerical_Pendulum	b21e434097f217df
+3	68	1746366541070924152	build.ninja	f54f89c05621857a
+2	295	1746367215001461489	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
+295	436	1746367215294465407	Numerical_Pendulum	b21e434097f217df
+3	184	1746367315264870999	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
+184	321	1746367315444873647	Numerical_Pendulum	b21e434097f217df
