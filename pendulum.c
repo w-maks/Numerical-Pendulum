@@ -8,17 +8,17 @@ const double m = 1.0;
 void pendulum_derivatives(double t, double* s, double* k)
 {
     k[0] = s[1];
-    k[1] = -g / R * sin(s[0] * M_PI / 180);
+    k[1] = -g / R * sin(s[0]);
 }
 
-double T(double omega) {
+double T(const double omega) {
     return 0.5 * m * pow(R, 2) * pow(omega, 2);
 }
 
-double U(double phi) {
-    return -m * g * R * cos(phi*M_PI/180);
+double U(const double phi) {
+    return -m * g * R * cos(phi);
 }
 
-double E(double T, double U) {
+double E(const double T, const double U) {
     return T + U;
 }

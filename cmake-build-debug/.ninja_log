@@ -9,3 +9,8 @@
 295	436	1746367215294465407	Numerical_Pendulum	b21e434097f217df
 3	184	1746367315264870999	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
 184	321	1746367315444873647	Numerical_Pendulum	b21e434097f217df
+3	157	1746367574283026682	CMakeFiles/Numerical_Pendulum.dir/analytical_pendulum.c.o	9513709f71fa115d
+4	190	1746367596608411869	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
+3	127	1746367615372738322	CMakeFiles/Numerical_Pendulum.dir/pendulum.c.o	14f88b12ca971f1b
+2	224	1746367615371738304	CMakeFiles/Numerical_Pendulum.dir/main.c.o	f60186ec6744d0e
+224	344	1746367615593742181	Numerical_Pendulum	b21e434097f217df
