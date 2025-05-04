@@ -21,7 +21,7 @@ int main(void)
     const char *files[] = {"pendulum_4.csv", "pendulum_45.csv", "pendulum_90.csv", "pendulum_135.csv", "pendulum_175.csv"};
 
     FILE *fp2 = fopen("periods.csv", "w");
-    fprintf(fp2, "phi0, T\n");
+    fprintf(fp2, "phi0,period\n");
 
     for (size_t j = 0; j < 5; ++j) {
         double t = 0.0;
@@ -63,7 +63,7 @@ int main(void)
             }
         }
 
-        fprintf(fp2, "%.1f,%.6f\n", phi0[j], period_found);
+        fprintf(fp2, "%lf,%lf\n", phi0[j], period_found);
 
         fclose(fp);
     }
